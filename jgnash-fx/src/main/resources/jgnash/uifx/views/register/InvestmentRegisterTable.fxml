@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import jgnash.uifx.control.TableViewEx?>
+<?import jgnash.uifx.resource.font.MaterialDesignLabel?>
+<?import jgnash.uifx.views.register.TransactionTagPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="jgnash.uifx.views.register.InvestmentRegisterTableController">
+   <top>
+       <TitledPane focusTraversable="false" expanded="false">
+           <graphic>
+               <GridPane BorderPane.alignment="CENTER" styleClass="info-bar">
+                   <columnConstraints>
+                       <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+                       <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0"
+                                          prefWidth="100.0"/>
+                       <ColumnConstraints halignment="RIGHT" hgrow="NEVER"/>
+                       <ColumnConstraints halignment="LEFT" hgrow="NEVER"/>
+                       <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" minWidth="15.0" prefWidth="15.0"/>
+                       <ColumnConstraints halignment="RIGHT" hgrow="NEVER"/>
+                       <ColumnConstraints halignment="LEFT" hgrow="NEVER"/>
+                       <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" minWidth="15.0" prefWidth="15.0"/>
+                       <ColumnConstraints halignment="RIGHT" hgrow="NEVER"/>
+                       <ColumnConstraints halignment="LEFT" hgrow="NEVER"/>
+                   </columnConstraints>
+                   <Label fx:id="accountNameLabel" GridPane.hgrow="ALWAYS"/>
+                   <Label text="%Label.Balance" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"/>
+                   <Label fx:id="balanceLabel" GridPane.columnIndex="3" GridPane.hgrow="NEVER"/>
+                   <Label text="%Label.MarketValue" GridPane.columnIndex="5"/>
+                   <Label fx:id="marketValueLabel" GridPane.columnIndex="6"/>
+                   <Label text="%Label.CashBalance" GridPane.columnIndex="8"/>
+                   <Label fx:id="cashBalanceLabel" GridPane.columnIndex="9"/>
+               </GridPane>
+           </graphic>
+           <ToolBar>
+               <MaterialDesignLabel glyphName="FILTER"/>
+               <ComboBox fx:id="reconciledStateFilterComboBox">
+                   <tooltip>
+                       <Tooltip text="%ToolTip.FilterReconciledState"/>
+                   </tooltip>
+               </ComboBox>
+               <ComboBox fx:id="transactionAgeFilterComboBox">
+                   <tooltip>
+                       <Tooltip text="%ToolTip.FilterTransactionAge"/>
+                   </tooltip>
+               </ComboBox>
+
+               <TransactionTagPane fx:id="tagPane"/>
+
+               <Button text="%Button.ResetAll" onAction="#handleResetFilters"/>
+           </ToolBar>
+       </TitledPane>
+   </top>
+   <center>
+      <TableViewEx fx:id="tableView" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

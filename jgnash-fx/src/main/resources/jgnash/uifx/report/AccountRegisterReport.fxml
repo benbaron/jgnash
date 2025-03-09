@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import jgnash.uifx.control.AccountComboBox?>
+<?import jgnash.uifx.control.DatePickerEx?>
+
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="jgnash.uifx.report.AccountRegisterReportController" styleClass="form, dialog">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
+
+    <GridPane styleClass="form">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="105" maxWidth="105"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="105" maxWidth="105"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="120" prefWidth="180" maxWidth="Infinity"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER"/>
+        </rowConstraints>
+
+        <Label text="%Label.StartDate"/>
+        <DatePickerEx fx:id="startDatePicker" GridPane.columnIndex="1"/>
+        <Label text="%Label.EndDate" GridPane.columnIndex="2"/>
+        <DatePickerEx fx:id="endDatePicker" GridPane.columnIndex="3"/>
+        <AccountComboBox fx:id="accountComboBox" GridPane.columnIndex="4"/>
+        <CheckBox text="%Button.DetailSplits" fx:id="showSplitsCheckBox" GridPane.columnIndex="5"/>
+        <CheckBox text="%Button.ShowTimestamp" fx:id="showTimestampCheckBox" GridPane.columnIndex="6"/>
+    </GridPane>
+
+    <GridPane styleClass="form" GridPane.rowIndex="1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" maxWidth="210"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" maxWidth="210"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER"/>
+        </rowConstraints>
+
+        <TextField fx:id="payeeFilterTextField" promptText="%ToolTip.FilterPayee" />
+        <TextField fx:id="memoFilterTextField" promptText="%ToolTip.FilterMemo" GridPane.columnIndex="1"/>
+        <Button text="%Button.ResetAll" onAction="#handleResetAll" GridPane.columnIndex="3"/>
+
+    </GridPane>
+
+</GridPane>
