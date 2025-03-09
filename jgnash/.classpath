@@ -17,7 +17,6 @@
 	<classpathentry kind="src" path="jgnash-fx/src/main/resources"/>
 	<classpathentry kind="src" path="jgnash-resources/src/main/resources"/>
 	<classpathentry kind="src" path="jgnash-tests/src/test/resources"/>
-	<classpathentry kind="src" path="mt940/src/test/resources"/>
 	<classpathentry kind="src" path="rhino-scripts"/>
 	<classpathentry kind="src" path="rust-launcher"/>
 	<classpathentry kind="src" path="deployfx"/>
