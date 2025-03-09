@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import jgnash.uifx.resource.font.MaterialDesignLabel?>
+
+<MenuBar fx:id="menuBar" id="menuBar" useSystemMenuBar="true" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml" fx:controller="jgnash.uifx.views.main.MenuBarController">
+
+    <Menu text="%Menu.File.Name" id="fileMenu">
+        <MenuItem onAction="#handleNewAction" text="%Menu.New.Name">
+            <accelerator>
+                <KeyCodeCombination alt="UP" code="N" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+            </accelerator>
+            <graphic>
+                <MaterialDesignLabel glyphName="FILE"/>
+            </graphic>
+        </MenuItem>
+        <SeparatorMenuItem/>
+        <MenuItem fx:id="openMenuItem" onAction="#handleOpenAction" text="%Menu.Open.Name">
+            <accelerator>
+                <KeyCodeCombination alt="UP" code="O" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+            </accelerator>
+            <graphic>
+                <MaterialDesignLabel glyphName="FOLDER_OPEN"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem fx:id="saveAsMenuItem" onAction="#handleSaveAsAction" text="%Menu.SaveAs.Name">
+            <graphic>
+                <MaterialDesignLabel glyphName="SAVE"/>
+            </graphic>
+        </MenuItem>
+        <SeparatorMenuItem/>
+        <Menu text="%Menu.Import.Name" id="importMenu">
+            <MenuItem text="%Menu.ImportOfx.Name" fx:id="importOfxMenuItem" onAction="#handleImportOFXAction"/>
+            <MenuItem text="%Menu.ImportQif.Name" fx:id="importQifMenuItem" onAction="#handleImportQIFAction"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="%Menu.ImportAccounts.Name"  fx:id="importAccountsMenuItem" onAction="#handleImportAccountsAction"/>
+        </Menu>
+        <Menu text="%Menu.Export.Name" id="exportMenu">
+            <MenuItem text="%Menu.ExportAccounts.Name"  fx:id="exportAccountsMenuItem" onAction="#handleExportAccountsAction"/>
+        </Menu>
+        <SeparatorMenuItem/>
+        <MenuItem fx:id="changePasswordMenuItem" onAction="#handleChangeDatabasePasswordAction" text="%Menu.ChangeCredentials.Name">
+            <graphic>
+                <MaterialDesignLabel glyphName="KEY"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem fx:id="packDatabaseMenuItem" onAction="#handlePackDatabaseAction" text="%Menu.PackDatabase.Name">
+            <graphic>
+                <MaterialDesignLabel glyphName="ARROW_COLLAPSE_VERTICAL"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem fx:id="shutdownServerMenuItem" onAction="#handleShutDownServerAction" text="%Menu.ShutdownServer.Name"/>
+        <SeparatorMenuItem/>
+        <MenuItem fx:id="closeMenuItem" onAction="#handleCloseAction" text="%Menu.Close.Name">
+            <graphic>
+                <MaterialDesignLabel glyphName="CLOSE_CIRCLE"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem fx:id="exitMenuItem" onAction="#handleExitAction" text="%Menu.Exit.Name">
+            <accelerator>
+                <KeyCodeCombination alt="UP" code="Q" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+            </accelerator>
+            <graphic>
+                <MaterialDesignLabel glyphName="SIGN_OUT"/>
+            </graphic>
+        </MenuItem>
+    </Menu>
+
+    <Menu fx:id="reportMenu" id="reportMenu" text="%Menu.Reports.Name">
+        <Menu text="%Menu.Export.Name">
+            <MenuItem text="%Menu.ProfitLossTXT.Name" onAction="#handleExportProfitLoss"/>
+            <MenuItem text="%Menu.MonthEndBalanceCSV.Name" onAction="#handleExportBalanceByMonthCSVReport"/>
+        </Menu>
+        <Menu text="%Menu.Charts.Name">
+            <MenuItem text="%Menu.IEBarChart.Name" onAction="#handleIncomeExpenseBarChart">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CHART_BAR"/>
+                </graphic>
+            </MenuItem>
+            <MenuItem text="%Menu.IEPieChart.Name" onAction="#handleIncomeExpensePieChart">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CHART_PIE"/>
+                </graphic>
+            </MenuItem>
+            <MenuItem text="%Menu.PayeePieChart.Name" onAction="#handleIncomeExpensePayeePieChart">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CHART_PIE"/>
+                </graphic>
+            </MenuItem>
+            <SeparatorMenuItem/>
+            <MenuItem text="%Menu.PeriodicAccountBalance.Name" onAction="#handleDisplayAccountBalanceChart">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CHART_BAR"/>
+                </graphic>
+            </MenuItem>
+            <SeparatorMenuItem/>
+            <MenuItem text="%Menu.TransactionTagPieChart.Name" onAction="#handleDisplayTransactionTagPieChart">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CHART_PIE"/>
+                </graphic>
+            </MenuItem>
+        </Menu>
+        <Menu text="%Menu.Account.Name">
+            <MenuItem text="%Menu.AccountRegister.Name" onAction="#handleDisplayAccountRegisterReport"/>
+            <MenuItem text="%Menu.BalanceSheet.Name" onAction="#handleDisplayBalanceSheetReport"/>
+            <MenuItem text="%Menu.ListOfAccounts.Name" onAction="#handleDisplayListOfAccountsReport"/>
+            <MenuItem text="%Menu.NetWorth.Name" onAction="#handleDisplayNetWorthReport"/>
+            <MenuItem text="%Menu.Portfolio.Name" fx:id="portfolioReportMenuItem" onAction="#handleDisplayPortfolioReport"/>
+            <MenuItem text="%Menu.ProfitLoss.Name" onAction="#handleDisplayProfitLossReport"/>
+        </Menu>
+    </Menu>
+
+    <Menu text="%Menu.View.Name" id="viewMenu">
+        <Menu fx:id="themesMenu" text="%Menu.Themes.Name"/>
+        <MenuItem text="%Menu.CustomStyleSheetApply.Name" onAction="#handleApplyStyleAction"/>
+        <MenuItem text="%Menu.CustomStyleSheetRemove.Name" onAction="#handleClearStyleAction"/>
+        <SeparatorMenuItem/>
+        <MenuItem text="%Menu.FontSize.Name" onAction="#handleFontSizeAction">
+            <graphic>
+                <MaterialDesignLabel glyphName="TEXT_HEIGHT"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem text="%Menu.BaseColor.Name" onAction="#handleBaseColorAction"/>
+    </Menu>
+
+    <Menu text="%Menu.Tools.Name" id="toolsMenu">
+        <Menu fx:id="securitiesMenu" text="%Menu.Securities.Name" id="securitiesMenu">
+            <MenuItem text="%Menu.ModifyCommodity.Name"
+                      onAction="#handleCreateModifySecuritiesAction"/>
+            <MenuItem text="%Menu.HistoryCommodity.Name"
+                      onAction="#handleSecuritiesHistoryAction"/>
+            <MenuItem text="%Menu.HistoryImport.Name"
+                      onAction="#handleSecurityHistoryImportAction"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="%Menu.BackgroundSecurityUpdate.Name"
+                      onAction="#updateSecurities">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CLOUD_DOWNLOAD"/>
+                </graphic>
+            </MenuItem>
+        </Menu>
+        <Menu fx:id="currenciesMenu" id="currenciesMenu" text="%Menu.Currency.Name">
+            <MenuItem text="%Menu.AddRemoveCurrency.Name" onAction="#handleAddRemoveCurrenciesAction"/>
+            <MenuItem text="%Menu.ModifyCurrency.Name" onAction="#handleModifyCurrenciesAction"/>
+            <MenuItem text="%Menu.ModifyExchangeRates.Name" onAction="#handleEditExchangeRatesAction"/>
+            <MenuItem text="%Menu.DefaultCurrency.Name" onAction="#handleSetDefaultCurrencyAction"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="%Menu.BackgroundCurrencyUpdate.Name" onAction="#updateCurrencies">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CLOUD_DOWNLOAD"/>
+                </graphic>
+            </MenuItem>
+        </Menu>
+        <MenuItem fx:id="recurringTransactionsMenuItem" text="%Menu.RecurringList.Name"
+                  onAction="#handleShowRecurringTransactionsAction"/>
+        <SeparatorMenuItem/>
+        <MenuItem fx:id="tagManagerMenuItem" text="%Menu.TagManager.Name" onAction="#handleTagManagerAction"/>
+        <SeparatorMenuItem/>
+        <MenuItem fx:id="budgetManagerMenuItem" text="%Menu.BudgetManager.Name" onAction="#handleBudgetManagerAction"/>
+        <SeparatorMenuItem/>
+        <MenuItem text="%Menu.Option.Name" fx:id="optionsMenuItem" onAction="#handleShowOptionDialog">
+            <graphic>
+                <MaterialDesignLabel glyphName="COGS"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem text="%Menu.EditTranNumList.Name" fx:id="transNumberListMenuItem"
+                  onAction="#handleShowTranNumberListDialog">
+            <graphic>
+                <MaterialDesignLabel glyphName="LIST"/>
+            </graphic>
+        </MenuItem>
+        <MenuItem text="%Menu.ConfigImportFilters.Name" fx:id="configureTranImportFiltersMenuItem"
+                  onAction="#handleShowTranImportFilterDialog">
+            <graphic>
+                <MaterialDesignLabel glyphName="COGS"/>
+            </graphic>
+        </MenuItem>
+        <SeparatorMenuItem/>
+        <MenuItem text="%Menu.Locale.Name" onAction="#changeDefaultLocale">
+            <graphic>
+                <MaterialDesignLabel glyphName="LANGUAGE"/>
+            </graphic>
+        </MenuItem>
+        <SeparatorMenuItem/>
+        <MenuItem text="%Menu.RunJavaScript.Name" onAction="#handleExecuteJavaScriptFile">
+            <accelerator>
+                <KeyCodeCombination alt="UP" code="J" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+            </accelerator>
+            <graphic>
+                <MaterialDesignLabel glyphName="LANGUAGE_JAVASCRIPT"/>
+            </graphic>
+        </MenuItem>
+    </Menu>
+
+    <Menu fx:id="windowMenu" text="%Menu.Window.Name">
+        <SeparatorMenuItem/>
+        <MenuItem text="%Menu.CloseAllWindows.Name" onAction="#closeAllWindows"/>
+    </Menu>
+
+    <Menu text="%Menu.Help.Name" id="helpMenu">
+        <MenuItem text="%Menu.About.Name" onAction="#handleAboutAction">
+            <accelerator>
+                <KeyCodeCombination alt="UP" code="A" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+            </accelerator>
+            <graphic>
+                <MaterialDesignLabel glyphName="INFO"/>
+            </graphic>
+        </MenuItem>
+        <SeparatorMenuItem/>
+        <MenuItem text="%Menu.Console.Name" onAction="#handleShowConsoleDialog">
+            <graphic>
+                <MaterialDesignLabel glyphName="CONSOLE"/>
+            </graphic>
+        </MenuItem>
+    </Menu>
+
+</MenuBar>

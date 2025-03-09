@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import jgnash.uifx.resource.font.MaterialDesignLabel?>
+
+<ToolBar xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx"
+         fx:controller="jgnash.uifx.views.main.MainToolBarController">
+    <Button mnemonicParsing="false" onAction="#handleOpenAction" text="%Button.Open">
+        <graphic>
+            <MaterialDesignLabel glyphName="FOLDER_OPEN"/>
+        </graphic>
+        <tooltip>
+            <Tooltip text="%Menu.Open.Tooltip"/>
+        </tooltip>
+    </Button>
+
+    <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleCloseAction" text="%Button.Close"
+            disable="true">
+        <graphic>
+            <MaterialDesignLabel glyphName="CLOSE_CIRCLE"/>
+        </graphic>
+        <tooltip>
+            <Tooltip text="%Menu.Close.Tooltip"/>
+        </tooltip>
+    </Button>
+
+    <Separator/>
+
+    <Button fx:id="updateSecurities" mnemonicParsing="false" onAction="#handleSecuritiesUpdateAction"
+            text="%Menu.BackgroundSecurityUpdate.Name" disable="true">
+        <graphic>
+            <MaterialDesignLabel glyphName="CLOUD_DOWNLOAD"/>
+        </graphic>
+        <tooltip>
+            <Tooltip text="%Menu.BackgroundSecurityUpdate.Tooltip"/>
+        </tooltip>
+    </Button>
+
+    <Button fx:id="updateCurrencies" mnemonicParsing="false" onAction="#handleCurrenciesUpdateAction"
+            text="%Menu.BackgroundCurrencyUpdate.Name" disable="true">
+        <graphic>
+            <MaterialDesignLabel glyphName="CLOUD_DOWNLOAD"/>
+        </graphic>
+        <tooltip>
+            <Tooltip text="%Menu.BackgroundCurrencyUpdate.Tooltip"/>
+        </tooltip>
+    </Button>
+</ToolBar>

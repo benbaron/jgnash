@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<GridPane fx:controller="jgnash.uifx.dialog.options.OptionDialogController" minHeight="-Infinity"
+          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" styleClass="form, dialog">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
+
+    <!--suppress JavaFxUnresolvedStyleClassReference -->
+    <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="floating">
+        <Tab text="%Tab.StartupShutdown">
+            <fx:include source="StartupShutdownTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.General">
+            <fx:include source="GeneralTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.Formats">
+            <fx:include source="FormatsTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.Accounts">
+            <fx:include source="AccountTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.Register">
+            <fx:include source="RegisterTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.Reminders">
+            <fx:include source="RemindersTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.Report">
+            <fx:include source="ReportTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.Network">
+            <fx:include source="NetworkTab.fxml"/>
+        </Tab>
+        <Tab text="%Tab.DataProviders">
+            <fx:include source="DataProviderTab.fxml"/>
+        </Tab>
+    </TabPane>
+
+    <ButtonBar GridPane.rowIndex="1">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#handleCloseAction" text="%Button.Close"
+                    ButtonBar.buttonData="CANCEL_CLOSE"/>
+        </buttons>
+    </ButtonBar>
+</GridPane>

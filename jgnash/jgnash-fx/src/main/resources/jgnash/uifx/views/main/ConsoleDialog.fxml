@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+<?import jgnash.uifx.resource.font.MaterialDesignLabel?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx" minHeight="-Infinity"
+          fx:controller="jgnash.uifx.views.main.ConsoleDialogController"
+          minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="dialog, form">
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="100.0" prefHeight="200.0" vgrow="ALWAYS"/>
+        <RowConstraints vgrow="SOMETIMES"/>
+        <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
+
+    <TextArea fx:id="consoleArea" editable="false" prefHeight="200.0" prefWidth="200.0"/>
+
+    <StackPane GridPane.rowIndex="1">
+        <ProgressBar fx:id="memoryUsageProgressBar" maxWidth="Infinity"/>
+        <Text fx:id="memoryUsageText"/>
+    </StackPane>
+
+    <ButtonBar GridPane.rowIndex="2">
+        <buttons>
+            <Button text="%Button.ForceGC" onAction="#handleForceGarbageCollection" ButtonBar.buttonUniformSize="false"
+                    ButtonBar.buttonData="LEFT"/>
+            <Button text="%Button.CopyToClip" onAction="#handleCopyToClipboard" ButtonBar.buttonUniformSize="false"
+                    ButtonBar.buttonData="LEFT">
+                <graphic>
+                    <MaterialDesignLabel glyphName="CLIPBOARD"/>
+                </graphic>
+            </Button>
+
+            <Button text="%Button.Close" onAction="#handleCloseAction" ButtonBar.buttonUniformSize="false"
+                    ButtonBar.buttonData="CANCEL_CLOSE"/>
+        </buttons>
+    </ButtonBar>
+</GridPane>

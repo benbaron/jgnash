@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="jgnash.uifx.views.accounts.SelectAccountController" styleClass="dialog, form"
+        minWidth="350">
+    <TreeView fx:id="treeView" VBox.vgrow="ALWAYS"/>
+    <ButtonBar fx:id="buttonBar" VBox.vgrow="NEVER"/>
+</VBox>

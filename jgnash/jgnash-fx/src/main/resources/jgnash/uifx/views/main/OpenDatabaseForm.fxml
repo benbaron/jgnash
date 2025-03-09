@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import jgnash.uifx.control.IntegerTextField?>
+<?import jgnash.uifx.resource.font.MaterialDesignLabel?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx" minHeight="-Infinity"
+          fx:controller="jgnash.uifx.views.main.OpenDatabaseController" styleClass="form, dialog">
+    <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity"/>
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="-Infinity"/>
+        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
+
+    <Label text="%Label.DatabaseName" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="localDatabaseField" editable="false" prefWidth="200.0" GridPane.columnIndex="1"
+               GridPane.rowIndex="0"/>
+    <Button fx:id="selectFileButton" onAction="#handleSelectFileAction" GridPane.columnIndex="2" GridPane.rowIndex="0">
+        <graphic>
+            <MaterialDesignLabel glyphName="ELLIPSIS_H"/>
+        </graphic>
+    </Button>
+
+    <CheckBox fx:id="remoteServerCheckBox"
+              text="%Button.RemoteServer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1"/>
+    <Label text="%Label.DatabaseServer" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="databaseServerField" prefWidth="200.0" GridPane.columnIndex="1"
+               GridPane.columnSpan="2" GridPane.rowIndex="2"/>
+
+    <Label text="%Label.Port" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <IntegerTextField fx:id="portField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                      GridPane.rowIndex="3"/>
+    <TitledPane collapsible="false" text="%Title.FileLoginCredentials" GridPane.columnIndex="0"
+                GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER"/>
+            </rowConstraints>
+
+            <Label text="%Label.Password" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <PasswordField fx:id="passwordField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        </GridPane>
+    </TitledPane>
+    <ButtonBar fx:id="buttonBar" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+        <buttons>
+            <Button text="%Button.Ok" ButtonBar.buttonData="OK_DONE" onAction="#okAction"/>
+            <Button text="%Button.Cancel" ButtonBar.buttonData="CANCEL_CLOSE" onAction="#cancelAction"/>
+        </buttons>
+    </ButtonBar>
+</GridPane>

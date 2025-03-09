@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.Scene?>
+<?import javafx.stage.Stage?>
+<?import jgnash.uifx.control.TableViewEx?>
+<?import jgnash.uifx.control.TimePeriodComboBox?>
+
+<fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         minWidth="680" minHeight="380">
+    <scene>
+        <Scene>
+            <BorderPane styleClass="dialog, form" prefWidth="680" prefHeight="380">
+                <center>
+                    <GridPane styleClass="form">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER"/>
+                            <ColumnConstraints hgrow="NEVER"/>
+                            <ColumnConstraints hgrow="NEVER"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                            <ColumnConstraints hgrow="NEVER"/>
+                            <ColumnConstraints hgrow="SOMETIMES"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints vgrow="ALWAYS"/>
+                            <RowConstraints vgrow="SOMETIMES"/>
+                            <RowConstraints vgrow="NEVER"/>
+                        </rowConstraints>
+
+                        <TableViewEx fx:id="tableView" GridPane.columnSpan="6" GridPane.fillWidth="true"
+                                     prefHeight="200"/>
+
+                        <Button text="%Button.SelectAll" fx:id="selectAllButton" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Button text="%Button.ClearAll" fx:id="clearAllButton" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button text="%Button.InvertSelection" fx:id="invertButton" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+                        <Label text="%Label.RemindLater" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                        <TimePeriodComboBox fx:id="snoozeComboBox" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
+
+                        <ButtonBar GridPane.rowIndex="2" GridPane.columnSpan="6">
+                            <buttons>
+                                <Button fx:id="cancelButton" mnemonicParsing="false"
+                                        text="%Button.RemindLater" ButtonBar.buttonData="CANCEL_CLOSE"/>
+                                <Button fx:id="okButton" mnemonicParsing="false"
+                                        text="%Button.AckSel" ButtonBar.buttonData="OK_DONE"/>
+                            </buttons>
+                        </ButtonBar>
+                    </GridPane>
+                </center>
+            </BorderPane>
+        </Scene>
+    </scene>
+</fx:root>
+
+

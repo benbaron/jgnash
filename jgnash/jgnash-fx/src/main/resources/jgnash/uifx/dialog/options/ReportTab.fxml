@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:controller="jgnash.uifx.dialog.options.ReportTabController" minHeight="-Infinity"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" styleClass="dialog, form">
+
+    <TitledPane text="%Title.DefaultBehavior" collapsible="false">
+        <GridPane styleClass="form">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER"/>
+            </rowConstraints>
+
+            <CheckBox text="%Button.ReportDate" fx:id="rememberLastReportDateCheckBox"/>
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane text="%Title.Fonts" collapsible="false">
+        <GridPane styleClass="form">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER"/>
+                <RowConstraints vgrow="NEVER"/>
+                <RowConstraints vgrow="NEVER"/>
+            </rowConstraints>
+
+            <Label text="%Label.Monospace" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="monoFontComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="%Label.Proportional" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="proportionalFontComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="%Label.HeaderTitle" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="headerFontComboBox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        </GridPane>
+    </TitledPane>
+</VBox>
