@@ -4,10 +4,6 @@
 **/bin/
 .svn/
 *.directory
-.settings/
-.project
-.classpath
-.idea/
 *.iml
 *.log
 nb-configuration.xml
@@ -15,8 +11,6 @@ nb-configuration.xml
 /pref.xml
 /gradle-app.setting
 /*.zip
-.gradle/
-lib/
 *.aux
 *.toc
 *.gz
